@@ -1,87 +1,10 @@
-================================================================================
-README.txt
-================================================================================
+FIS calculates driving time between major cities in South Africa 
 
-This readme contains useful instructions and info that we can forget.
+This is Spring boot REST APIs that is consumed by the Angular application (fisweb)
+This application uses internal h2 database for data storage and JPa for ROM. 
+The application calculates the driving time between the major cities in South Africa
+The end user is able to enter the average speed and see the resulting estimated travel time on the screen. 
+The application also takes into account that for every 2 hours that the driver drives he/she must take a 20 minute break. No authentication\security is done. Code is Unit tested Maven and Java 8 are used.
 
-
-================================================================================
-Specifying env when starting java
-================================================================================
-
--Dspring.profiles.active=dev
-
-
-================================================================================
-JWT Spring Boot side authentication
-================================================================================
-
-Spring scans classpath for a class that implements UserDetailsService.  that 
-class has the following method:
-
-    UserDetails loadUserByUsername(..)
-       
-Our class is:
-
-    AppUserDetailsService
-
-
-================================================================================
-Running boot in dev mode
-================================================================================
-
-Run StartTradeBoot
-
-
-================================================================================
-Running web in dev mode
-================================================================================
-
-In console:
-
-     npm start
-     
-Edit host file:
-
-    ##
-    # Host Database
-    #
-    # localhost is used to configure the loopback interface
-    # when the system is booting.  Do not change this entry.
-    ##
-    #127.0.0.1      localhost Johns-MacBook-Pro.local
-    #127.0.0.1      www.localhost.com Johns-MacBook-Pro.local
-    127.0.0.1       womenkare.43kare-member.de mazzeye.43kare-member.de womenkare.trade43.de www.localhost.com localhost Johns-MacBook-Pro.local
-    255.255.255.255 broadcasthost
-    ::1             localhost
-    # localhost       womenkare.43kare-member.de
-
-open in browser:
-
-    http://womenkare.trade43.de:4200/
-
-
-================================================================================
-Running boot in dev mode
-================================================================================
-
-
-
-
-================================================================================
-Urls in prod and test
-================================================================================
-
-Prod
-
-    https://womenkare.43kare-trade.de
-    https://inana01.43kare.de/home
-    
-test
-
-    https://staging.womenkare.43kare-trade.de
-
-
-    
-
-
+Note:
+The initial intention was to integrate with Google Map Distance Matrix apis but the api has given me a very limited number of requests per day pay the extra requests after my daily limits. So i ended up doing a mathematical algorithim that uses a straight line calculation between two cities without taking care of gps maping and driving routes.
