@@ -4,13 +4,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.43kare.trade43.boot</groupId>
-	<artifactId>trade43boot</artifactId>
+	<groupId>com.njoroge.fis.boot</groupId>
+	<artifactId>fisboot</artifactId>
 	<version>1.9-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>trade43boot</name>
-	<description>trade43 spring boot</description>
+	<name>fisboot</name>
+	<description>fis spring boot</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
