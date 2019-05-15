@@ -5,9 +5,6 @@ import java.util.Calendar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -19,12 +16,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  * @date 09/05/2019
  */
 @Entity
-@Table( name = "APP_USER" )
-public class User {
+@Table( name = "app_user" )
+public class User extends AbstractPersistentEntity {
 
-    @Id
-    @GeneratedValue( strategy = GenerationType.IDENTITY )
-    private Long id;
+    private static final long serialVersionUID = -6650431380121670003L;
 
     @Column( name = "email", nullable = false, unique = true, length = 255 )
     private String email;
@@ -33,16 +28,16 @@ public class User {
     @JsonIgnore
     private String password;
 
-    @Column( name = "FIRST_NAME", nullable = false, unique = false,
+    @Column( name = "first_name", nullable = false, unique = false,
             length = 100 )
     private String firstName;
 
-    @Column( name = "LAST_NAME", nullable = false, unique = false,
+    @Column( name = "last_name", nullable = false, unique = false,
             length = 100 )
     private String lastName;
 
     @Temporal( TemporalType.TIMESTAMP )
-    @Column( name = "CREATED_DATE", updatable = true, nullable = false )
+    @Column( name = "created_date", updatable = true, nullable = false )
     private Calendar createdDate;
 
     public String getEmail() {
@@ -108,18 +103,6 @@ public class User {
     public int hashCode() {
 
         return super.hashCode();
-    }
-
-
-    public Long getId() {
-
-        return id;
-    }
-
-
-    public void setId( Long id ) {
-
-        this.id = id;
     }
 
 

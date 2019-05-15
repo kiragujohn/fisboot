@@ -1,5 +1,5 @@
---DROP Sequence fis_sequence;
---CREATE Sequence fis_sequence START 1001;
+DROP Sequence fis_sequence;
+CREATE Sequence fis_sequence START 1001;
 
 INSERT INTO app_user (id, first_name, last_name, password, email, created_date) 
 VALUES (6, 'John', 'Njoroge', 'password', 'kiragujohn@hotmail.com', '2018-09-17 18:47:52.69');
