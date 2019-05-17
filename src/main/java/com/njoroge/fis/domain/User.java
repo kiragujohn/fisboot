@@ -5,6 +5,9 @@ import java.util.Calendar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -16,29 +19,32 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  * @date 09/05/2019
  */
 @Entity
-@Table( name = "app_user" )
-public class User extends AbstractPersistentEntity {
+@Table( name = "APP_USER" )
+public class User {
 
-    private static final long serialVersionUID = -6650431380121670003L;
+    @Id
+    @GeneratedValue( strategy = GenerationType.IDENTITY )
+    private Long id;
 
-    @Column( name = "email", nullable = false, unique = true, length = 255 )
+    @Column( name = "EMAIL", nullable = false, unique = true, length = 255 )
     private String email;
 
-    @Column( name = "password", nullable = false, unique = false, length = 256 )
+    @Column( name = "PASSWORD", nullable = false, unique = false, length = 256 )
     @JsonIgnore
     private String password;
 
-    @Column( name = "first_name", nullable = false, unique = false,
+    @Column( name = "FIRST_NAME", nullable = false, unique = false,
             length = 100 )
     private String firstName;
 
-    @Column( name = "last_name", nullable = false, unique = false,
+    @Column( name = "LAST_NAME", nullable = false, unique = false,
             length = 100 )
     private String lastName;
 
     @Temporal( TemporalType.TIMESTAMP )
-    @Column( name = "created_date", updatable = true, nullable = false )
+    @Column( name = "CREATED_DATE", updatable = true, nullable = false )
     private Calendar createdDate;
+
 
     public String getEmail() {
 
@@ -99,17 +105,16 @@ public class User extends AbstractPersistentEntity {
         this.createdDate = createdDate;
     }
 
-    @Override
-    public int hashCode() {
 
-        return super.hashCode();
+    public Long getId() {
+
+        return id;
     }
 
 
-    @Override
-    public boolean equals( Object obj ) {
+    public void setId( Long id ) {
 
-        return super.equals( obj );
+        this.id = id;
     }
 
 

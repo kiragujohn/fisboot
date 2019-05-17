@@ -3,6 +3,9 @@ package com.njoroge.fis.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
@@ -10,20 +13,22 @@ import javax.persistence.Table;
  * @date 09/05/2019
  */
 @Entity
-@Table( name = "city" )
-public class City extends AbstractPersistentEntity {
+@Table( name = "CITY" )
+public class City {
 
-    private static final long serialVersionUID = 5222806659166236835L;
-
-    @Column( name = "address", nullable = false, unique = true, length = 255 )
+    @Column( name = "ADDRESS", nullable = false, unique = true, length = 255 )
     private String address;
 
-    @Column( name = "latitude", nullable = false, unique = false, length = 255 )
+    @Column( name = "LATITUDE", nullable = false, unique = false, length = 255 )
     private Double latitude;
 
-    @Column( name = "longitude", nullable = false, unique = false,
+    @Column( name = "LONGITUDE", nullable = false, unique = false,
             length = 255 )
     private Double longitude;
+
+    @Id
+    @GeneratedValue( strategy = GenerationType.IDENTITY )
+    private Long id;
 
 
     public String getAddress() {
@@ -59,6 +64,18 @@ public class City extends AbstractPersistentEntity {
     public void setLongitude( Double longitude ) {
 
         this.longitude = longitude;
+    }
+
+
+    public Long getId() {
+
+        return id;
+    }
+
+
+    public void setId( Long id ) {
+
+        this.id = id;
     }
 
 
